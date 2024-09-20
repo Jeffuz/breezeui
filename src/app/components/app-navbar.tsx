@@ -12,6 +12,10 @@ import { IoClose } from "react-icons/io5";
 const Navbar = () => {
     const [openSidebar, setOpenSidebar] = useState<boolean>(false);
 
+    // Links for sidebar
+    const started: string[] = ["introduction"];
+    const components: string[] = ["navbar", "button"].sort();
+
     return (
         <>
             {/* Top Navbar */}
@@ -68,13 +72,28 @@ const Navbar = () => {
                             <span className='font-bold text-2xl font-mono'>BreezeUI</span>
                         </Link>
                         {/* Links */}
-                        <div className="flex flex-col gap-4 text-gray-500 ml-11">
+                        <div className="flex flex-col gap-4 text-gray-500 ml-11 overflow-y-auto">
                             <Link href={"/docs"} onClick={() => setOpenSidebar(false)} className='hover:text-black transition duration-200'>
                                 Docs
                             </Link>
                             <Link href={"/docs/components"} onClick={() => setOpenSidebar(false)} className='hover:text-black transition duration-200'>
                                 Components
                             </Link>
+                            {/* Getting Started */}
+                            <div className='text-black font-medium mt-4'>
+                                Getting Started
+                            </div>
+                            <ul>
+                                {/* change href for link if have more elements in started array */}
+                                {started.map((item, index) => <li key={index} className='capitalize'><Link href={"/docs"}>{item}</Link></li>)}
+                            </ul>
+                            {/* Components */}
+                            <div className='text-black font-medium mt-4'>
+                                Components
+                            </div>
+                            <ul>
+                                {components.map((component, index) => <li key={index} className='mb-4 capitalize'><Link href={`/docs/components/${component}`}>{component}</Link></li>)}
+                            </ul>
                         </div>
                     </div>
                 </div>
