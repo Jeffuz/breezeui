@@ -16,7 +16,7 @@ const sidebar = () => {
           {started.map((item, index) => <li key={index} className='mb-2 capitalize'><Link href={"/docs"}>{item}</Link></li>)}
         </ul>
         {/* Components */}
-        <div className='text-black text-lg mb-2'>
+        <div className='text-black text-lg mb-2 mt-4'>
           Components
         </div>
         <ul>
